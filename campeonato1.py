@@ -1,4 +1,5 @@
 import os
+import random
 
 times = []
 
@@ -9,9 +10,10 @@ def exibir_opcoes_1():
 
 def cadastrar_times():
     import app
+    app.exibir_subtitulo('Cadastro de Times')
 
-    if len(times) <= 7:
-        while len(times) <= 7:
+    if len(times) < 8:
+        while len(times) < 8:
             app.exibir_subtitulo('Cadastro de Times')
             clube = input('Digite o nome do clube: ')
             capitao = input('Digite o nome do capitão do time: ')
@@ -20,15 +22,16 @@ def cadastrar_times():
             print(f'\nO clube {clube} do capitão {capitao} foi registrado com sucesso')
             input('Digite uma tecla para cadastrar o próximo time: ')
         
+        app.exibir_subtitulo('Cadastro de Times')
         print('\nO limite máximo de clubes registrados foi atingido')
         app.retornar_menu(menu_camp_1)
-         # refatorar para consguir mudar para outro menus
+        
 
     else:
         app.exibir_subtitulo('Cadastro de Times')
         print('O campeonato já atingiu seu limite de 8 times registrados')
         app.retornar_menu(menu_camp_1) 
-        # refatorar para consguir mudar para outro menus
+        
     
 def tabela_pts_corridos():
     import app
@@ -41,7 +44,12 @@ def tabela_pts_corridos():
 
 
 def lista_de_jogos():
-    print('bele')
+    import app
+    app.exibir_subtitulo('Lista de Jogos')
+    if len(times) == 8:
+        time_aleatorio = random.choice(times)
+        print(time_aleatorio['clube'])
+
 
 opcoes_camp_1 = {
     1: cadastrar_times,

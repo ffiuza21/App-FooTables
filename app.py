@@ -1,13 +1,7 @@
 import os
 import campeonato1
 import campeonato2
-import campeonato3
-
-modelos_de_campeonato = {
-    1: campeonato1.menu_camp_1,
-    2: campeonato2.menu_camp_2,  
-    # 3: 
-}
+# import campeonato3
 
 def exibir_nome_do_app():
     print('''
@@ -25,6 +19,12 @@ def exibir_nome_do_app():
 ─██████─────────██████████████─██████████████─────██████─────██████──██████─████████████████─██████████████─██████████████─██████████████─
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────''')
 
+modelos_de_campeonato = {
+    1: campeonato1.menu_camp_1,
+    2: campeonato2.menu_camp_2,  
+    # 3: 
+}
+
 def exibir_modelos_campeonato():
     print('1. Somente Pontos Corridos')
     print('2. Pontos Corridos + Quadragular Final')
@@ -39,7 +39,7 @@ def selecionar_opcao(campeonato, menu_funcao):
 
     funcao = campeonato.get(opcao_escolhida, None)
 
-    if funcao:
+    if funcao: # se a função for true, ou seja encontrada, executa função
         funcao()
     else:
         opcao_invalida(menu_funcao)
