@@ -1,5 +1,7 @@
 import os
 import random
+import pandas as pd
+import numpy as np
 
 times = []
 
@@ -20,7 +22,7 @@ def cadastrar_times():
             time = {'capitao': capitao, 'clube': clube}
             times.append(time)
             print(f'\nO clube {clube} do capitão {capitao} foi registrado com sucesso')
-            input('Digite uma tecla para cadastrar o próximo time: ')
+            input('Confirme para cadastrar o próximo time: ')
         
         app.exibir_subtitulo('Cadastro de Times')
         print('\nO limite máximo de clubes registrados foi atingido')
@@ -36,6 +38,24 @@ def cadastrar_times():
 def tabela_pts_corridos():
     import app
     app.exibir_subtitulo('Tabela do Campeonato')
+
+    if len(times) == 0:
+        print('Não há times cadastrados')
+        app.retornar_menu(menu_camp_1)
+
+    df = pd.DataFrame(times)
+    df['Pontos'] = 0
+    df['Jogos'] = 0
+    df['Vitórias'] = 0
+    df['Empates'] = 0
+    df['Derrotas'] = 0
+    df['GM'] = 0
+    df['GC'] = 0
+    df['Saldo'] = df['GM'] - df['GC']
+
+    print(df)
+    app.retornar_menu(menu_camp_1)
+    
 
 
 

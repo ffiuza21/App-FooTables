@@ -1,6 +1,6 @@
 import os
-import campeonato1
-import campeonato2
+import campeonato1 as c1
+import campeonato2 as c2
 # import campeonato3
 
 def exibir_nome_do_app():
@@ -20,8 +20,8 @@ def exibir_nome_do_app():
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────''')
 
 modelos_de_campeonato = {
-    1: campeonato1.menu_camp_1,
-    2: campeonato2.menu_camp_2,  
+    1: c1.menu_camp_1,
+    2: c2.menu_camp_2,  
     # 3: 
 }
 
@@ -45,7 +45,7 @@ def selecionar_opcao(campeonato, menu_funcao):
         opcao_invalida(menu_funcao)
 
 def retornar_menu(menu_funcao):
-    input('\nConfirme uma tecla para retornar ao menu princiapl: ')
+    input('\nConfirme para retornar ao menu princiapl: ')
     menu_funcao()
 
 def exibir_subtitulo(subtitulo):
